@@ -1,9 +1,7 @@
 import express from "express";
-import "dotenv/config";
-
-import App from "./services/App";
+import App from "./services/ExpressApp";
 import dbConnection from "./services/Database";
-import { port } from "./config";
+import { PORT } from "./config";
 
 const StartServer = async () => {
   const app = express();
@@ -12,8 +10,8 @@ const StartServer = async () => {
 
   await App(app);
 
-  app.listen(port, () => {
-    console.log(`Listening to port 8000 ${port}`);
+  app.listen(PORT, () => {
+    console.log(`Listening to port 8000 ${PORT}`);
   });
 };
 
